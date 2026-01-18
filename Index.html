@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just One Question ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f0f0f, #2b2b2b);
+      color: white;
+    }
+    .card {
+      background: #1c1c1c;
+      padding: 30px 20px 40px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+    button {
+      padding: 12px 26px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+    #yesBtn:hover {
+      transform: scale(1.05);
+    }
+    #noBtn {
+      background: #555;
+      color: white;
+      position: absolute;
+      left: 60%;
+      top: 0;
+    }
+    .result {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff9aa2;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey 👀❤️</h1>
+    <p>I have a very serious question for you…<br><br>Will you be my girlfriend? 💍💖</p><div class="buttons">
+  <button id="yesBtn">Yes 😍</button>
+  <button id="noBtn">No 🙄</button>
+</div>
+
+<div class="result" id="result">
+  Yayyy!! 🥳❤️<br>You just made me the happiest person 💕
+</div>
+
+  </div>  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const result = document.getElementById('result');
+    const buttons = document.querySelector('.buttons');
+
+    function moveNoButton() {
+      const maxX = buttons.clientWidth - noBtn.offsetWidth;
+      const maxY = buttons.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+    }
+
+    noBtn.addEventListener('mouseenter', moveNoButton);
+    noBtn.addEventListener('touchstart', moveNoButton);
+
+    yesBtn.addEventListener('click', () => {
+      result.style.display = 'block';
+      buttons.style.display = 'none';
+    });
+  </script></body>
+</html>
